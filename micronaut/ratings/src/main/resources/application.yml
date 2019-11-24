@@ -1,0 +1,18 @@
+micronaut:
+  application:
+    name: ratings
+  server:
+    port: 9083
+
+datasources:
+  default:
+    url: "jdbc:postgresql://${JDBC_HOST:localhost}:${JDBC_PORT:5432}/test"
+    driverClassName: org.postgresql.Driver
+    username: root
+    password: password
+    dialect: POSTGRES
+
+jpa:
+  default:
+    entity-scan:
+      packages: 'ratings'

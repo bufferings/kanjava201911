@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Simple Bookstore App</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap-theme.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">BookInfo Sample</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center text-primary">[[${product.title}]]</h3>
+      <p>Summary: [(${product.descriptionHtml})]</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h4 class="text-center text-primary">Book Details</h4>
+      <dl>
+        <dt>Type:</dt>[[${details.type}]]
+        <dt>Pages:</dt>[[${details.pages}]]
+        <dt>Publisher:</dt>[[${details.publisher}]]
+        <dt>Language:</dt>[[${details.language}]]
+        <dt>ISBN-10:</dt>[[${details.isbn10}]]
+        <dt>ISBN-13:</dt>[[${details.isbn13}]]
+      </dl>
+    </div>
+
+    <div class="col-md-6">
+      <h4 class="text-center text-primary">Book Reviews</h4>
+      <blockquote th:each="review : ${reviews.reviews}">
+        <p>[[${review.text}]]</p>
+        <small>[[${review.reviewer}]]</small>
+        <font th:color="${review.rating.color}">
+          <!--/*/ <th:block th:if="${review.rating.stars} gt 0"
+                            th:each="dummy : ${review.rating.redStars}"> /*/-->
+          <span class="glyphicon glyphicon-star"></span>
+          <!--/*/ </th:block> /*/-->
+          <!--/*/ <th:block th:if="${review.rating.stars} lt 5"
+                            th:each="dummy : ${review.rating.whiteStars}"> /*/-->
+          <span class="glyphicon glyphicon-star-empty"></span>
+          <!--/*/ </th:block> /*/-->
+        </font>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="static/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="static/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

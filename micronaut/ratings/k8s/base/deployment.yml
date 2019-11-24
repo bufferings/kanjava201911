@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratings
+  labels:
+    app: ratings
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ratings
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: ratings
+        version: v1
+    spec:
+      containers:
+        - name: ratings
+          image: docker.io/kanjava1911/ratings
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MICRONAUT_SERVER_PORT
+              value: "8080"
+            - name: JDBC_HOST
+              value: "postgres.default.svc.cluster.local"
+          resources:
+            requests:
+              cpu: 100m

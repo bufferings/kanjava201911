@@ -1,0 +1,5 @@
+micronaut:
+  application:
+    name: details
+  server:
+    port: 9082

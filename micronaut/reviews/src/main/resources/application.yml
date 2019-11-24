@@ -1,0 +1,8 @@
+micronaut:
+  application:
+    name: reviews
+  server:
+    port: 9081
+
+ratings:
+  url: http://localhost:9083/ratings

@@ -1,0 +1,7 @@
+namespace: mn-native
+
+bases:
+  - ../../base
+
+patchesStrategicMerge:
+  - deployment-patch.yml

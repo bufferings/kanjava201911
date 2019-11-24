@@ -1,0 +1,18 @@
+micronaut:
+  application:
+    name: productpage
+  server:
+    port: 9080
+  router:
+    static-resources:
+      default:
+        enabled: true
+        mapping: "/static/**"
+        paths: "classpath:static"
+  views:
+    folder: templates
+
+reviews:
+  url: "http://localhost:9081/reviews"
+details:
+  url: "http://localhost:9082/details"

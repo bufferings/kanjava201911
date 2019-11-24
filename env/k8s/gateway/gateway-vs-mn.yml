@@ -1,0 +1,32 @@
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: mn
+spec:
+  hosts:
+  - "mn.kanjava1911.bufferings.me"
+  gateways:
+  - kanjava1911-gateway
+  http:
+  - route:
+    - destination:
+        port:
+          number: 8080
+        host: productpage.mn.svc.cluster.local
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: mn-native
+spec:
+  hosts:
+  - "mn-native.kanjava1911.bufferings.me"
+  gateways:
+  - kanjava1911-gateway
+  http:
+  - route:
+    - destination:
+        port:
+          number: 8080
+        host: productpage.mn-native.svc.cluster.local

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reviews
+  labels:
+    app: reviews
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reviews
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: reviews
+        version: v1
+    spec:
+      containers:
+        - name: reviews
+          image: docker.io/kanjava1911/reviews
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MICRONAUT_SERVER_PORT
+              value: "8080"
+            - name: RATINGS_URL
+              value: "http://ratings:8080/ratings"
+          resources:
+            requests:
+              cpu: 100m

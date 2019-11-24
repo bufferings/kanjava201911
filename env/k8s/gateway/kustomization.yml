@@ -1,0 +1,3 @@
+resources:
+  - gateway.yml
+  - gateway-vs-mn.yml
